@@ -7,26 +7,42 @@ require('dotenv').config();
 
 function App() {
 	const [Cryptos, setCryptos] = useState([]);
+	const [Search, setSearch] = useState('');
+
 	useEffect(() => {
 		axios
 			.get(process.env.REACT_APP_KEY)
-			.then((res) => res.json())
-			.then((data) => {
-				setCryptos(data);
+			.then((response) => {
+				setCryptos(response.data);
 			})
 			.catch((err) => console.log(err));
 	}, []);
 
+	const handleChange = (e) => {
+		setSearch(e.target.value);
+	};
+
+	const filteredCrypto = Cryptos.filter((crypto) =>
+		crypto.name.toLowerCase().includes(Search.toLowerCase())
+	);
+
 	return (
 		<div className='coin-app'>
-			<CryptoSearch />
-			{Cryptos.map((crypto) => (
-				<CryptoItem
-					key={crypto.id}
-					name={crypto.name}
-					price={crypto.current_price}
-				/>
-			))}
+			<CryptoSearch handleChange={handleChange} />
+			{filteredCrypto.map((crypto) => {
+				return (
+					<CryptoItem
+						key={crypto.id}
+						name={crypto.name}
+						price={crypto.current_price}
+						image={crypto.image}
+						symbol={crypto.symbol}
+						marketcap={crypto.market_cap}
+						priceChange={crypto.price_change_percentage_24h}
+						volume={crypto.total_volume}
+					/>
+				);
+			})}
 		</div>
 	);
 }

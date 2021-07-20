@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CryptoSearch = () => {
+export const CryptoSearch = ({ handleChange }) => {
 	return (
 		<div className='coin-search'>
 			<h1 className='coin-head'>Search a currency</h1>
@@ -9,6 +9,7 @@ export const CryptoSearch = () => {
 					type='text'
 					placeholder='search'
 					className='coin-input'
+					onChange={handleChange}
 				/>
 			</form>
 		</div>
