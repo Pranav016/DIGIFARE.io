@@ -1,6 +1,6 @@
+import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css';
 import { CryptoItem } from './components/CryptoItem';
 import { CryptoSearch } from './components/CryptoSearch';
 require('dotenv').config();

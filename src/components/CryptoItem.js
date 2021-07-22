@@ -1,4 +1,5 @@
 import React from 'react';
+import './CryptoItem.css';
 
 export const CryptoItem = ({
 	name,
