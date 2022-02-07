@@ -17,6 +17,11 @@
 	color: #fff;
 }
 
+.coin-app h1 {
+	margin-bottom: 4vh;
+	text-shadow: 2px 1px 1px #ac32e4;
+}
+
 .coin-search {
 	margin-bottom: 64px;
 	display: flex;

@@ -3,7 +3,7 @@ import React from 'react';
 export const CryptoSearch = ({ handleChange }) => {
 	return (
 		<div className='coin-search'>
-			<h1 className='coin-head'>Search a currency</h1>
+			<h3 className='coin-head'>Search a currency</h3>
 			<form>
 				<input
 					type='text'

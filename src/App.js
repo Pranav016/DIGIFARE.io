@@ -28,6 +28,7 @@ function App() {
 
 	return (
 		<div className='coin-app'>
+			<h1>DigiFare.io</h1>
 			<CryptoSearch handleChange={handleChange} />
 			{filteredCrypto.map((crypto) => {
 				return (
